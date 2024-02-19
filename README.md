@@ -1,12 +1,16 @@
 # LLM Learning Notes
 
+## topic 0: Fundementals
+- Reinforcement Learning (PPO, DPO)
+- Pytorch
+- Attention Mechanism
+
 ## topic 1: LLM Pretraining
-- Attention Mechanics
-  - BERT
-  - T5
-  - LLaMa 2
-  - PaLM
-  - Mistral-8x7B
+- BERT
+- T5
+- LLaMa 2
+- PaLM
+- Mistral-8x7B
 
 ## topic 2: Fine-tuning
 - SFT (instruction tuning)
