@@ -56,10 +56,7 @@ $$
 
 The Transformer architecture is composed of an encoder stack and a decoder stack (N=6)
 
-<p float="left">
-  <img src="Transformers%20&%20Attention%20927b8057e1e74a8ca8c608feb367c468/Untitled.png" width="48%" />
-  <img src="Transformers%20&%20Attention%20927b8057e1e74a8ca8c608feb367c468/Untitled%201.png" width="48%" /> 
-</p>
+![Untitled](Transformers%20&%20Attention%20927b8057e1e74a8ca8c608feb367c468/transformers.png)
 
 
 ### 1. Embedding
@@ -110,4 +107,3 @@ The same residual connection and layer normalization strategy are applied after 
 
 # References
 -[Transformers](https://jalammar.github.io/illustrated-transformer/)
-- [attention with seq2seq](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)
