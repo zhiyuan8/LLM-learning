@@ -107,3 +107,7 @@ Each decoder block in the Transformer model includes three main sub-layers:
 - **Position-wise Feed-Forward Networks**: Identical to those in the encoder block.
 
 The same residual connection and layer normalization strategy are applied after each sub-layer in the decoder as well.
+
+# References
+-[Transformers](https://jalammar.github.io/illustrated-transformer/)
+- [attention with seq2seq](https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/)

@@ -2,8 +2,8 @@
 
 ## topic 0: Fundementals
 - Reinforcement Learning (PPO, DPO)
-- Pytorch
 - Transformers and Attention Mechanism
+- GPT2
 
 ## topic 1: LLM Pretraining
 - BERT
