@@ -26,7 +26,7 @@
 - LoRA & QLoRA
 - Parallelization
 - FlashAttention and Flash Attention 2
-- Linear Attention: Lightening Attention-2
+- Linear Attention: Lightening Attention 2
 - Quantization
 - Speculative Decoding
 - Overview of Efficient Serving (if time permit)
