@@ -46,4 +46,5 @@ While both GPT-2 and BERT are built on transformer technology, a critical distin
 ![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled%203.png)
 
 ## Reference
-- [https://jalammar.github.io/illustrated-gpt2/](https://jalammar.github.io/illustrated-gpt2/)
+- [illustrated-gpt2](https://jalammar.github.io/illustrated-gpt2/)
+- [GPT model explained](https://medium.com/walmartglobaltech/the-journey-of-open-ai-gpt-models-32d95b7b7fb2)

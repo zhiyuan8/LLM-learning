@@ -8,10 +8,10 @@
 ## topic 1: LLM Pretraining
 - BERT
 - T5
-- GPT3
-- LLaMa 2
+- LLaMa2
 - PaLM
 - Mistral-8x7B
+
 
 ## topic 2: Fine-tuning
 - SFT (instruction tuning)
@@ -20,6 +20,7 @@
 - SPIN
 - Prompt engineering / Tuning
 - Prefix tuning
+
 
 ## topic 3 : Efficient Training and Inference
 - LoRA & QLoRA
@@ -30,7 +31,7 @@
 - Speculative Decoding
 - Overview of Efficient Serving (if time permit)
 
-## topic 4: Agent and Open-source
+## topic 4: Agent and Applications
 - RAG
 - Tool-using
 - Open-source resources
@@ -38,5 +39,6 @@
   - Ray
   - langchain
   - Triton
+  - Format LLM
 
 # References
