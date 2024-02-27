@@ -8,6 +8,7 @@
 ## topic 1: LLM Pretraining
 - BERT
 - T5
+- GPT3
 - LLaMa 2
 - PaLM
 - Mistral-8x7B
@@ -37,3 +38,5 @@
   - Ray
   - langchain
   - Triton
+
+# References

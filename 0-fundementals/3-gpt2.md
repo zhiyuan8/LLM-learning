@@ -1,8 +1,49 @@
-# 
-trained on a massive 40GB dataset called WebText 
-GPT2 uses transformer decoder blocks.  
-BERT uses transformer encoder blocks.  
 
+# GPT2
 
-# References
-- [gpt2 notes](https://jalammar.github.io/illustrated-gpt2/)
+- **Generative Pre-trained Transformer**
+    - decoder: only use a decoder, not an encoder
+    - unidirectional: only use the left context
+- **Auto-regressive**
+
+After each token is produced, that token is added to the sequence of inputs. And that new sequence becomes the input to the model in its next step.
+
+- **decoder**
+
+The GPT-2 is built using transformer `decoder` blocks. GPT2, like traditional language models, outputs one token at a time. 
+
+Below are the encoder & decoder blocks for reference:
+
+![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled.png)
+
+![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled%201.png)
+
+- **masked self-attention**
+
+One key difference is that it **masks future tokens** – not by changing the word to [mask] like BERT, but by interfering in the self-attention calculation blocking information from tokens that are to the right of the position being calculated.
+
+It’s important that the distinction between self-attention (what BERT uses) and masked self-attention (what GPT-2 uses) is clear. A normal self-attention block allows a position to peak at tokens to its right. Masked self-attention prevents that from happening.
+
+![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled%202.png)
+
+### Differences from BERT
+
+While both GPT-2 and BERT are built on transformer technology, a critical distinction lies in their attention mechanisms:
+
+- BERT utilizes self-attention, allowing tokens to attend to all positions within the sequence.
+- GPT-2 employs masked self-attention, blocking access to future tokens to maintain the auto-regressive property.
+
+- GPT pre-training : **Causal Language Modeling (CLM)**
+    - objective: CLM involves predicting the next word in a sequence based on the words that precede it.
+- GPT model size
+    - GPT-2 : 1.5B
+    - GPT-3 : 175B
+    - GPT-4 : 10T
+- GPT variations
+    - Distil GPT (A lighter version of GPT)
+    - OpenAI Codex (for coding)
+
+![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled%203.png)
+
+## Reference
+- [https://jalammar.github.io/illustrated-gpt2/](https://jalammar.github.io/illustrated-gpt2/)
