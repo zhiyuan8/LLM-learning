@@ -1,8 +1,4 @@
 # Mixtral 8x7B: Sparse Mixture of Expert
-
-Owner: Zhiyuan Li
-Tags: Guides and Processes
-
 - Mixtral 8x7B model (mistral small) = Mistral 7B + MoE Architecture
 - Mixtral 47B parameters, but only uses 13B active parameters during inference. Mistral Medium: state of arts SMoE, but not open source
 
