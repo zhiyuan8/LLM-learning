@@ -69,6 +69,7 @@ Attention
 
 # Reference
 - [Understand llama2 architecture](https://medium.com/towards-generative-ai/understanding-llama-2-architecture-its-ginormous-impact-on-genai-e278cb81bd5c)
+- [Llama 2: A Comprehensive Guide](https://www.simform.com/blog/llama-2-comprehensive-guide/)
 - [llama2 intro](https://huggingface.co/blog/llama2)
 - [Meta llama2 code](https://github.com/facebookresearch/llama)
 - [huggingface transformers with llama2](https://github.com/huggingface/transformers/tree/da20209dbc26a6a870a6e7be87faa657b571b7bc/src/transformers/models/llama)
