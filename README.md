@@ -42,23 +42,60 @@
   - Format LLM
 
 Below is model comparison table:
-|              | BERT    | T5          | GPT 1     | GPT2    | GPT3    | GPT4    | PALM       | LLAMA      | LLAMA 2      |
-|--------------|---------|-------------|-----------|---------|---------|---------|------------|------------|--------------|
-| Company      | Google  | Google      | OpenAI    | OpenAI  | OpenAI  |         | Google     | Facebook   |              |
-| Time         | 2018    | 2019        | 2018      | 2019    | 2020    | 2023    | 2023       | 2023       | 2023         |
-| Architecture | encoder | enc-dec     | casual-decoder | casual-decoder | casual-decoder | MOE | casual-decoder | casual-decoder | casual-decoder |
-| ModelSize    | 110M, 340M | 220M-11B | 117M     | 1.5B   | 175B   | 1.76T?  | 8,62,540B  | 7-65B      | 70B           |
-| Objective    | MLM, NSP | Text-to-Text | CLM (Casual lang model) | CLM | CLM | "Performance, alignment, Auxiliary Objective" | CLM | CLM, auto-regressive |
-| Data         | BookCorpus, EnWiki | C4(en) | BookCorpus | WebText(40GB) | Mix (Common Crawl, WebText2, Books1, Books2 and Wikipedia.) | | public data | OpenSource |
-| Preprocessing| no      | Task Prefix | no        | task + {q}, {a} | InContextLearning | | | |
-| Tokenizer    | wordpiece | sentencepiece(wordpiece, 32000) | BPE | BPE(50257) | BPE (variant, SentencePiece) | SentencePiece 256k | BPE (variant, SentencePiece) | BPE (variant, SentencePiece, 32k) |
-| PositionalEncoding | absolute positional encoding, segment embedding,learnable | relative positional encoding | absolute positional encoding, learnable positional encoding | absolute positional encoding | absolute positional encoding | | ROPE(variant) | ROPE(variant) |
-| Attention    | bidirectional | encoder: fully visible, decoder: casual attention mask. prefix LM | | | | MQA | SparseAttention | GroupQueryAttention |
-| FFW+Activation+related | original,gelu | original | GLEU | GLEU, LayerNorm before decoder | PreNorm | | SwiGLU | PreNorm, SwiGLU, 2.7x(instead of 4) | PreNorm(RMSNorm), SwiGLU |
-| ContextLength| 512     | 512         | 512       | 768,1024, 1280, 1600 | 2048    | | 4,096,819,218,432 | 2k          | 4k            |
-| Layers       | 12,24   | 12          | 12        | 48      | 96      | 120     | 32,64,118  | 32-80       | 32-80         |
-| BatchSize    | 32      | 128         | 64        | 512     | 32M     | 16M     | | 4M        | 4M            |
-| Evaluation   | Glue    | cross-entropy loss | | | | zero-one-few shot | | |
-| Training technique | | | pre-train + fine tune | one-train | | | RLHF | |
-| Optimizer    | | AdaFactor | | | | | AdamW | AdamW |
 
+To make the model comparison table fit better in GitHub Markdown and improve readability, we can split it into multiple smaller tables centered around specific themes or categories of information. This approach makes it easier to digest and allows for more focused comparison within specific areas of interest. Here's how you can reformat the table:
+
+### Company and Time
+
+| Model      | Company  | Time |
+|------------|----------|------|
+| BERT       | Google   | 2018 |
+| T5         | Google   | 2019 |
+| GPT-1      | OpenAI   | 2018 |
+| GPT-2      | OpenAI   | 2019 |
+| GPT-3      | OpenAI   | 2020 |
+| GPT-4      | OpenAI   | 2023 |
+| PALM       | Google   | 2023 |
+| LLAMA      | Facebook | 2023 |
+| LLAMA 2    |          | 2023 |
+
+### Architecture, Model Size, and Objective
+
+| Model      | Architecture       | Model Size           | Objective                                                  |
+|------------|-------------------|----------------------|------------------------------------------------------------|
+| BERT       | encoder            | 110M, 340M           | MLM, NSP                                                   |
+| T5         | enc-dec            | 220M-11B             | Text-to-Text                                               |
+| GPT-1      | casual-decoder     | 117M                 | CLM (Casual lang model)                                    |
+| GPT-2      | casual-decoder     | 1.5B                 | CLM                                                        |
+| GPT-3      | casual-decoder     | 175B                 | CLM                                                        |
+| GPT-4      | MOE                | 1.76T?               | "Performance, alignment, Auxiliary Objective"             |
+| PALM       | casual-decoder     | 8,62,540B            | CLM                                                        |
+| LLAMA      | casual-decoder     | 7-65B                | CLM, auto-regressive                                       |
+| LLAMA 2    | casual-decoder     | 70B                  |                                                            |
+
+### Data, Preprocessing, and Tokenization
+
+| Model      | Data                                                                 | Preprocessing | Tokenizer                                     |
+|------------|----------------------------------------------------------------------|---------------|-----------------------------------------------|
+| BERT       | BookCorpus, EnWiki                                                   | no            | wordpiece                                    |
+| T5         | C4(en)                                                               | Task Prefix   | sentencepiece(wordpiece, 32000)              |
+| GPT-1      | BookCorpus                                                           | no            | BPE                                          |
+| GPT-2      | WebText(40GB)                                                        | task + {q}, {a}| BPE(50257)                                    |
+| GPT-3      | Mix (Common Crawl, WebText2, Books1, Books2 and Wikipedia.)         | InContextLearning | BPE (variant, SentencePiece)           |
+| GPT-4      |                                                                      |               | SentencePiece 256k                           |
+| PALM       | public data                                                          |               | BPE (variant, SentencePiece)                 |
+| LLAMA      | OpenSource                                                           |               | BPE (variant, SentencePiece, 32k)            |
+
+### Technical Specifications
+
+| Model      | PositionalEncoding         | Attention          | FFW+Activation+related                      | ContextLength | Layers | BatchSize |
+|------------|----------------------------|--------------------|---------------------------------------------|---------------|--------|-----------|
+| BERT       | absolute positional encoding, segment embedding,learnable | bidirectional | original,gelu                              | 512           | 12,24  | 32        |
+| T5         | relative positional encoding| encoder: fully visible, decoder: casual attention mask. prefix LM | original        | 512     | 12      | 128       |
+| GPT-1      | absolute positional encoding, learnable |                  | GLEU                                        | 512           | 12     | 64        |
+| GPT-2      | absolute positional encoding|                    | GLEU, LayerNorm before decoder              | 768,1024, 1280, 1600 | 48   | 512       |
+| GPT-3      | absolute positional encoding|                    | PreNorm                                    | 2048          | 96     | 32M       |
+| GPT-4      |                            | MQA                |                                            |               | 120    | 16M       |
+| PALM       | ROPE(variant)              | SparseAttention    | SwiGLU                                      | 4,096,819,218,432 | 32,64,118 |         |
+| LLAMA      | ROPE(variant)              | GroupQueryAttention| PreNorm, SwiGLU, 2.7x(instead of 4)        | 2k            | 32-80  | 4M        |
+| LLAMA 2    |                            |                    | PreNorm(RMSNorm), SwiGLU                    | 4k            | 32-80  | 4M        |
