@@ -20,10 +20,10 @@
 - SPIN
 - Prompt engineering / Tuning
 - Prefix tuning
+- LoRA & QLoRA
 
 
 ## topic 3 : Efficient Training and Inference
-- LoRA & QLoRA
 - Parallelization
 - FlashAttention and Flash Attention 2
 - Linear Attention: Lightening Attention 2
