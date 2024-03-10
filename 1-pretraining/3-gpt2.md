@@ -26,6 +26,24 @@ It’s important that the distinction between self-attention (what BERT uses) an
 
 ![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled%202.png)
 
+### Description
+- **Generative Pre-trained Transformer**
+    - decoder : only use decoder, not encoder
+    - unidirectional : only use left context
+- **Auto-regressive**
+
+After each token is produced, that token is added to the sequence of inputs. And that new sequence becomes the input to the model in its next step.
+
+- **masked self-attention**
+
+- GPT pre-training :
+    - object 1 : causal language modeling
+        - predict the next word in a sequence
+    - GPT-2 : 1.5B
+    - GPT-3 : 175B
+    - GPT-4 : 10T
+- variations : Distil GPT & OpenAI Codex
+
 ### Differences from BERT
 
 While both GPT-2 and BERT are built on transformer technology, a critical distinction lies in their attention mechanisms:
@@ -46,5 +64,6 @@ While both GPT-2 and BERT are built on transformer technology, a critical distin
 ![Untitled](GPT2%20f19e13e386234edc8c4ebfdc491c9eff/Untitled%203.png)
 
 ## Reference
+- [Language models are unsupervised multitask learners](https://scholar.google.com/scholar?q=Language+Models+are+Unsupervised+Multitask+Learners&hl=en&as_sdt=0&as_vis=1&oi=scholart)
 - [illustrated-gpt2](https://jalammar.github.io/illustrated-gpt2/)
 - [GPT model explained](https://medium.com/walmartglobaltech/the-journey-of-open-ai-gpt-models-32d95b7b7fb2)
