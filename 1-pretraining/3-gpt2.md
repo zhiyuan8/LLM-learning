@@ -39,3 +39,4 @@ Below are the encoder & decoder blocks for reference:
 - [Language models are unsupervised multitask learners](https://scholar.google.com/scholar?q=Language+Models+are+Unsupervised+Multitask+Learners&hl=en&as_sdt=0&as_vis=1&oi=scholart)
 - [illustrated-gpt2](https://jalammar.github.io/illustrated-gpt2/)
 - [GPT model explained](https://medium.com/walmartglobaltech/the-journey-of-open-ai-gpt-models-32d95b7b7fb2)
+- [AndrejKarpathy GPT tutorial](https://www.youtube.com/watch?v=kCc8FmEb1nY&ab_channel=AndrejKarpathy)

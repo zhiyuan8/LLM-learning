@@ -1,95 +1,57 @@
+# GPT-3
 
-# GPT1
+- autoregressive language model with 175 billion parameters, trained on 300 billion tokens.
+- in-context learning / `few-shot learning`
+    - For tasks, it uses few-shot learning ONLY, NO gradient updates or fine-tuning
+- `meta-learning`
+    - the model develops a broad set of skills and pattern recognition abilities at training time, and then uses those abilities at inference time to rapidly adapt to or recognize the desired task
+- Limitation
+    - Our current objective **weights every token equally** and lacks a notion of what is most important to predict and what is less important.
+- Train process
 
-- GPT-1 (Generative Pre-trained Transformer) is a language model introduced by OpenAI in 2018. It is a transformer-based model that is pre-trained on a large corpus of text in an unsupervised manner using a language modeling objective. After the pre-training phase, the model can be fine-tuned on specific tasks using labeled data.
-- GPT-1 is an `autoregressive model`, meaning it generates text one token at a time. After each token is produced, it is added to the input sequence, and the model predicts the next token based on the updated input.
-- Unlike BERT, which uses regular self-attention, GPT-1 employs `masked self-attention`. This means that during the **self-attention** calculation, future tokens are masked (hidden) to maintain the autoregressive property.
-- a `single task-agnostic model` through generative pre-training and discriminative fine-tuning.
+![Untitled](GPT3%20cf1708e67bc54046b45c31313035a52e/Untitled.png)
 
-## **Architecture**:
+- Inference process
 
-GPT-1 is a **decoder-only** transformer model, meaning it uses only the decoder part of the transformer architecture. It is **unidirectional**, processing the input text from left to right, unlike BERT, which is bidirectional, and BERT can predict.
+![Untitled](GPT3%20cf1708e67bc54046b45c31313035a52e/Untitled%201.png)
 
-**Unsupervised pre-training**
+### **Model Architecture**:
 
-Given an unsupervised corpus of tokens $\mathcal{U} = \{u_1, \ldots, u_n\}$ we use a standard language modeling objective to maximize the following likelihood:
+GPT-3 follows the **transformer-based architecture**, **decoder-only**, and retains the **masked self-attention mechanism**.
 
-where \( k \) is the size of the context window, and the conditional probability \( P \) is modeled using a neural network with parameters \( \Theta \). These parameters are trained using stochastic gradient descent \cite{51}.
+![Untitled](GPT3%20cf1708e67bc54046b45c31313035a52e/Untitled%202.png)
 
-$$
-L_1 (\mathcal{U}) = \sum_{i} \log P(u_i | u_{i-k}, \ldots, u_{i-1}; \Theta)
-$$
+### **Pre-training**
 
-we use a multi-layer *`Transformer decoder`* which is a variant of the transformer
+train for 300 billion tokens, some datasets are seen up to 3.4 times during training while other datasets are seen less than once.
 
-$$
-h_0 = U W_e + W_p
-$$
+![Untitled](GPT3%20cf1708e67bc54046b45c31313035a52e/Untitled%203.png)
 
-$$
-h_l = \text{transformer block}(h_{l-1}) \quad \forall l \in [1, n]
-$$
+To train all versions of GPT-3, we use Adam with $\beta_1 = 0.9$, $\beta_2 = 0.95$, and $\epsilon = 10^{-8}$, we clip the global norm of the gradient at 1.0, and we use cosine decay for learning rate down to 10% of its value, over 260 billion tokens (after 260 billion tokens, training continues at 10% of the original learning rate). There is a linear LR warmup over the first 375 million tokens. We also gradually increase the batch size linearly from a small value (32k tokens) to the full value over the first 4-12 billion tokens of training, depending on the model size. Data are sampled without replacement during training (until an epoch boundary is reached) to minimize overfitting. All models use a weight decay of 0.1 to provide a small amount of regularization.
 
-$$
-P(u) = \text{softmax}(h_n W^T_e)
-$$
+During training we always train on sequences of the full $n_{ctx} = 2048$ token context window, packing multiple documents into a single sequence when documents are shorter than 2048, in order to increase computational efficiency. Sequences with multiple documents are not masked in any special way but instead, documents within a sequence are delimited with a special end-of-text token, giving the language model the information necessary to infer that the context separated by the end-of-text token is unrelated. This allows for efficient training without the need for any special sequence-specific masking.
 
-where $U = (u_{-k},\dots,u_{-1})$ is the context vector of tokens, n is the number of layers, $W_e$ is the token embedding matrix, and $W_p$ is the position embedding matrix.
+## Scaling Law
 
-**Supervised fine-tunning with two objective functions**
-The inputs are passed through our pre-trained model to obtain the final transformer block’s activation  $h^m_l$, which is then fed into an added linear output layer with parameters $W_y$ to predict y:
+Performance (measured in terms of cross-entropy validation loss) follows a power-law trend with the amount of computing used for training.
 
-$$
-P(y|x^1, \ldots, x^m) = \text{softmax}(h^m_l W_y).
-$$
+```markdown
+**The LM’s test loss varies as a power law with respect to the number of model parameters**
+```
 
-This gives us the following objective to maximize:
+In math, it is described as 
 
 $$
-L_2(\mathcal{C}) = \sum_{(x,y)} \log P(y|x^1, \ldots, x^m).
+y = ax^p
 $$
 
-We additionally found that including language modeling as an auxiliary objective to the fine-tuning helped learning by (a) improving the generalization of the supervised model, and (b) accelerating convergence:
+![Untitled](GPT3%20cf1708e67bc54046b45c31313035a52e/Untitled%204.png)
 
-$$
-L_3(\mathcal{C}) = L_2(\mathcal{C}) + \lambda \ast L_1(\mathcal{C}).
-$$
+While zero-shot performance improves steadily with model size, few-shot performance increases more rapidly, demonstrating that larger models are more proficient at in-context learning.
 
-**Task-specific input transformations**
-All transformations include adding randomly initialized start and end tokens (⟨s⟩, ⟨e⟩).
+![Untitled](GPT3%20cf1708e67bc54046b45c31313035a52e/Untitled%205.png)
 
-![Untitled](GPT1%208b5848ee8ec54f4da0583831eb2e7a39/Untitled.png)
+### **References**:
 
-### Textual Entailment
-
-- **Task Description**: Determine if the premise logically entails the hypothesis.
-- **Example**:
-    - **Premise**: "Dad gives flower to mom."
-    - **Hypothesis**: "Dad loves mom."
-    - **Explanation**: The model assesses whether the action described in the premise (giving a flower) implies the hypothesis (love). It does not necessarily prove love but could suggest it, so the task is to decide if one can logically infer the hypothesis from the premise.
-
-### Similarity
-
-- **Task Description**: Assess the degree of semantic similarity between two sentences.
-- **Example**:
-    - **Sentence 1**: "The cat sits on the mat."
-    - **Sentence 2**: "A cat is sitting on a mat."
-    - **Explanation**: Both sentences convey nearly identical meanings but with different wording. The model evaluates how similar the sentences are in meaning, potentially identifying them as paraphrases.
-
-### Question Answering and Commonsense Reasoning
-
-- **Task Description**: Select the correct answer from a set of options based on a given context and question.
-- **Example**:
-    - **Context (z)**: "Alice placed the cake in the fridge to keep it cool."
-    - **Question (q)**: "Where is the cake?"
-    - **Possible Answers $a_k$**:
-        1. "In the oven."
-        2. "On the table."
-        3. "In the fridge."
-    - **Explanation**: The model uses the context to determine that the correct answer is "In the fridge," demonstrating an understanding of the story's details and commonsense knowledge about where cakes can be stored to stay cool.
-
-# References
-
-[Improving Language Understanding by Generative Pre-Training](https://scholar.google.com/scholar?q=Improving+Language+Understanding+by+Generative+Pre-Training+archiv&hl=en&as_sdt=0&as_vis=1&oi=scholart)
-
-[https://www.youtube.com/watch?v=kCc8FmEb1nY&ab_channel=AndrejKarpathy](https://www.youtube.com/watch?v=kCc8FmEb1nY&ab_channel=AndrejKarpathy)
+- [Language Models are Few-Shot Learners](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&as_vis=1&q=Language+Models+are+Few-Shot+Learners&btnG=)
+- [AndrejKarpathy GPT tutorial](https://www.youtube.com/watch?v=kCc8FmEb1nY&ab_channel=AndrejKarpathy)
