@@ -1,22 +1,19 @@
 # LLM Learning Notes
 
 ## topic 0: Fundementals
-- Reinforcement Learning (PPO, DPO)
-- Transformers and Attention Mechanism
-- GPT2
+- [Machine Learning basics](0-fundementals/1-rnn.md)
+- [Transformers and Attention Mechanism](0-fundementals/2-attention.md)
 
 ## topic 1: LLM Pretraining
-- BERT
-- T5
-- LLaMa2
-- PaLM
-- Mistral-8x7B
-
+- [Google BERT](1-pretraining/1-bert.md)
+- [Google T5](1-pretraining/2-t5.md)
+- [Meta LLaMa2](1-pretraining/3-llama2.md)
+- [Google PaLM2](1-pretraining/4-palm2.md)
+- [Mistral-8x7B](1-pretraining/5-mistral.md)
+- [Google Gemma](1-pretraining/6-gemma.md)
 
 ## topic 2: Fine-tuning
 - SFT (instruction tuning)
-- RLHF (PPO and DPO basics)
-- RLAiF
 - SPIN
 - Prompt engineering / Tuning
 - Prefix tuning
@@ -40,6 +37,18 @@
   - langchain
   - Triton
   - Format LLM
+
+## top 5: Reinfocement Learning
+- PPO, DPO
+- RLHF
+- RLAiF
+
+## top 6: on-device ML
+- MobileLLM (Meta)
+- AppAgent (Tencent) and MobileAgent (Alibaba)
+- MLC LLM (Machine Learning Compilation for Large Language Models)
+- Pytorch Mobile
+
 
 Below is model comparison table:
 
