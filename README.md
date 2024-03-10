@@ -4,9 +4,13 @@
 - [Machine Learning basics](0-fundementals/1-rnn.md)
 - [Transformers and Attention Mechanism](0-fundementals/2-attention.md)
 
-## topic 1: LLM Pretraining
+## topic 1: LLM Models
 - [Google BERT](1-pretraining/1-bert.md)
 - [Google T5](1-pretraining/2-t5.md)
+- [GPT1](1-pretraining/3-gpt1.md)
+- [GPT2](1-pretraining/3-gpt2.md)
+- [GPT3](1-pretraining/3-gpt3.md)
+- [GPT4](1-pretraining/3-gpt4.md)
 - [Meta LLaMa2](1-pretraining/3-llama2.md)
 - [Google PaLM2](1-pretraining/4-palm2.md)
 - [Mistral-8x7B](1-pretraining/5-mistral.md)
