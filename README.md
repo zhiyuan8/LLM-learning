@@ -17,7 +17,7 @@
 - [Google Gemma](1-pretraining/6-gemma.md)
 
 ## topic 2: Fine-tuning
-- SFT (instruction tuning)
+- SFT (instruction tuning), Stanford Alpaca
 - SPIN
 - Prompt engineering / Tuning
 - Prefix tuning
@@ -34,13 +34,12 @@
 
 ## topic 4: Agent and Applications
 - RAG
-- Tool-using
-- Open-source resources
-  - Hugging face
-  - Ray
-  - langchain
-  - Triton
-  - Format LLM
+- Format LLM / Structural Decoding
+- Meta Tool-former
+- Hugging face
+- langchain
+- Triton
+- Ray
 
 ## top 5: Reinfocement Learning
 - PPO, DPO
@@ -69,8 +68,8 @@ To make the model comparison table fit better in GitHub Markdown and improve rea
 | GPT-3      | OpenAI   | 2020 |
 | GPT-4      | OpenAI   | 2023 |
 | PALM       | Google   | 2023 |
-| LLAMA      | Facebook | 2023 |
-| LLAMA 2    |          | 2023 |
+| LLAMA      | Meta     | 2023 |
+| LLAMA 2    | Meta     | 2023 |
 
 ### Architecture, Model Size, and Objective
 

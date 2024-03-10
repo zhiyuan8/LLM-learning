@@ -90,4 +90,4 @@ All transformations include adding randomly initialized start and end tokens (‚ü
 
 # References
 - [Improving Language Understanding by Generative Pre-Training](https://scholar.google.com/scholar?q=Improving+Language+Understanding+by+Generative+Pre-Training+archiv&hl=en&as_sdt=0&as_vis=1&oi=scholart)
-- [AndrejKarpathy](https://www.youtube.com/watch?v=kCc8FmEb1nY&ab_channel=AndrejKarpathy)
+- [AndrejKarpathy GPT tutorial](https://www.youtube.com/watch?v=kCc8FmEb1nY&ab_channel=AndrejKarpathy)

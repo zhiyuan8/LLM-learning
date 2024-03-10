@@ -36,30 +36,6 @@ Tags: Guides and Processes
 
 ![Untitled](BERT%20&%20GPT2%20&%20T5%20570e753c77cf410eb92624478547513d/Untitled%202.png)
 
-# GPT2
-- **Generative Pre-trained Transformer**
-    - decoder : only use decoder, not encoder
-    - unidirectional : only use left context
-- **Auto-regressive**
-
-After each token is produced, that token is added to the sequence of inputs. And that new sequence becomes the input to the model in its next step.
-
-- **masked self-attention**
-
-- GPT pre-training :
-    - object 1 : causal language modeling
-        - predict the next word in a sequence
-    - GPT-2 : 1.5B
-    - GPT-3 : 175B
-    - GPT-4 : 10T
-- variations : Distil GPT & OpenAI Codex
-
-# T5
-- Text-to-Text Transfer Transformer, from Google
-    - text-to-text : convert tasks into a text-to-text format
-    - transfer : use transfer learning
-    - transformer : use transformers, not RNNs or CNNs
-- encoder-decoder : use both encoder and decoder
 
 # Reference
 - [BERT](https://jalammar.github.io/illustrated-bert/)
