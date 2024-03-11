@@ -17,8 +17,7 @@
 - [Google Gemma](1-pretraining/6-gemma.md)
 
 ## topic 2: Fine-tuning
-- SFT (instruction tuning), Stanford Alpaca
-- SPIN
+- [SFT & SPIN & Stanford Alpaca](2-finetuning/1-SFT.md)
 - Prompt engineering / Tuning
 - Prefix tuning
 - LoRA & QLoRA
