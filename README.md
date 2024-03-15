@@ -110,3 +110,9 @@ To make the model comparison table fit better in GitHub Markdown and improve rea
 | PALM       | ROPE(variant)              | SparseAttention    | SwiGLU                                      | 4,096,819,218,432 | 32,64,118 |         |
 | LLAMA      | ROPE(variant)              | GroupQueryAttention| PreNorm, SwiGLU, 2.7x(instead of 4)        | 2k            | 32-80  | 4M        |
 | LLAMA 2    |                            |                    | PreNorm(RMSNorm), SwiGLU                    | 4k            | 32-80  | 4M        |
+
+
+# Exceptional Learning Tutorials
+-[karpathy AI Tutorial](https://karpathy.ai/zero-to-hero.html)
+-[Stanford CS224N](https://web.stanford.edu/class/cs224n/)
+-[llm course github](https://github.com/mlabonne/llm-course)
