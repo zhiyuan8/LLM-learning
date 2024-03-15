@@ -23,13 +23,15 @@
 - LoRA & QLoRA
 
 
-## topic 3 : Efficient Training and Inference
-- Parallelization
-- FlashAttention and Flash Attention 2
-- Linear Attention: Lightening Attention 2
+## topic 3 : LLM Training & Inference
+- [Parallization](3-train-inference/0-parallelization.md)
+- [Distributed Training](3-train-inference/1-distributed-training.md)
+- [Flash Attention 1 & 2](3-train-inference/2-flash-attention.md)
+- [LoRA](3-train-inference/3-lora.md)
+- [Linear Attention & Lightening Attention 2](3-train-inference/4-linear-attention.md)
 - Quantization
 - Speculative Decoding
-- Overview of Efficient Serving (if time permit)
+- Overview of Efficient Serving
 
 ## topic 4: Agent and Applications
 - RAG
