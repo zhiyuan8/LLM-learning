@@ -18,9 +18,9 @@
 
 ## topic 2: Fine-tuning
 - [SFT & SPIN & Stanford Alpaca](2-finetuning/1-SFT.md)
-- Prompt engineering / Tuning
+- [Prompt engineering / Tuning](2-finetuning/2-prompt-engineering.md)
 - Prefix tuning
-- LoRA & QLoRA
+- [LoRA & QLoRA](2-finetuning/4-lora.md)
 
 
 ## topic 3 : LLM Training & Inference
