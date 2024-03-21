@@ -1,0 +1,3 @@
+huggingface/training_output/
+huggingface/wandb/
+huggingface/fine_tune_with_trainer/

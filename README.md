@@ -18,9 +18,9 @@
 
 ## topic 2: Fine-tuning
 - [SFT & SPIN & Stanford Alpaca](2-finetuning/1-SFT.md)
-- Prompt engineering / Tuning
+- [Prompt engineering / Tuning](2-finetuning/2-prompt-engineering.md)
 - Prefix tuning
-- LoRA & QLoRA
+- [LoRA & QLoRA](2-finetuning/4-lora.md)
 
 
 ## topic 3 : LLM Training & Inference
@@ -113,4 +113,8 @@ To make the model comparison table fit better in GitHub Markdown and improve rea
 | LLAMA      | ROPE(variant)              | GroupQueryAttention| PreNorm, SwiGLU, 2.7x(instead of 4)        | 2k            | 32-80  | 4M        |
 | LLAMA 2    |                            |                    | PreNorm(RMSNorm), SwiGLU                    | 4k            | 32-80  | 4M        |
 
-# Credits
+
+# Exceptional Learning Tutorials
+-[karpathy AI Tutorial](https://karpathy.ai/zero-to-hero.html)
+-[Stanford CS224N](https://web.stanford.edu/class/cs224n/)
+-[llm course github](https://github.com/mlabonne/llm-course)
