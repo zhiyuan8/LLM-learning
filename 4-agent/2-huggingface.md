@@ -3,8 +3,8 @@
 - [Transformers](https://huggingface.co/docs/transformers/index)
 - [PEFT Parameter-Efficient Fine-Tuning](https://huggingface.co/docs/peft/en/index)
 - [TRL - Transformer Reinforcement Learning](https://huggingface.co/docs/trl/index)
-- Accelerate [https://huggingface.co/docs/accelerate/index](https://huggingface.co/docs/accelerate/index)
-- Datasets [https://huggingface.co/docs/datasets/index](https://huggingface.co/docs/datasets/index)
+- [Accelerate](https://huggingface.co/docs/accelerate/index)
+- [Datasets](https://huggingface.co/docs/datasets/index)
 
 # 1. Transformers
 
