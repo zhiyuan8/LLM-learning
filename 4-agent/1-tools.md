@@ -124,6 +124,46 @@ DFSDT broadens the search space by considering multiple reasoning traces and ach
 
 ![Untitled](LLM%20Tool%20Usages%2099c1ec5adb174d11936634a4c3ee3721/Untitled%205.png)
 
+
+Task Description of Multi-tool Instructions:
+```
+You will be provided with several tools, tool descriptions, all of each tool’s available API functions, the descriptions of these API functions, and the parameters required for each API function. Your task involves creating 10 varied, innovative, and detailed user queries that employ API functions of multiple tools. 
+
+For instance:
+...
+
+Deliver your response in this format: [Query1: ......, ‘related apis’:[[tool name, api name], [tool name, api name], [tool name, api name]...],Query2: ......, ‘related apis’:[[tool name, api name], [tool name, api name], [tool name, api name]...] ...]
+```
+In-context Seed Examples:
+```
+“Query”: “For my best friend’s surprise birthday party, I require inspiration for party games and decorations. Kindly suggest some random words that can serve as themes for the party. Furthermore, I’m interested in gathering news articles about the latest party trends to ensure a modern celebration. Also, I would appreciate details about the local hotels in my area for accommodation options. Your assistance is greatly appreciated.”, “related apis”: [[’Random Words’, ‘Get multiple random words’], [’thedigitalnewsfeederapi’, ‘Getting News Articles’], [’thedigitalnewsfeederapi’, ‘Getting all news articles’]]
+```
+Solution Path Annotation: Use the following prompt when searching for the solution path. When expanding the child nodes, we use diversity user prompt, showing the information of previous child nodes.
+```
+You are Tool-GPT, capable of utilizing numerous tools and functions to complete the given task.
+
+1. First, I will provide you with the task description, and your task will commence.
+
+2. At each step, you need to analyze the current status and determine the next course of action by executing a function call.
+
+3. Following the call, you will receive the result, transitioning you to a new state. Subsequently, you will analyze your current status, make decisions about the next steps, and repeat this process.
+
+4. After several iterations of thought and function calls, you will ultimately complete the task and provide your final answer.
+
+Task description: {task_description}
+
+---------------------------------------------------------
+diversity_user_prompt:
+{previous_candidate}
+
+---------------------------------------------------------
+Finish_function_description:
+def Finish()
+	'''
+	return_type(enum): ["give_answer","give_up_and_restart"]
+	'''
+```
+
 ## ToolLLaMA - Github
 
 You can use the following command to train ToolLLaMA-7b with **2 x A100 (80GB)**, with our preprocessed data:
