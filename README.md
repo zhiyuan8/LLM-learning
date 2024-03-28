@@ -34,11 +34,15 @@
 - Overview of Efficient Serving
 
 ## topic 4: Agent and Applications
+- [Tool/API Usage](4-agent-applications/1-tools.md)
+    - Toolformers
+    - Gorilla
+    - ToolAlpaca
+    - ToolLLM / ToolLLaMA
+- [Hugging face](4-agent-applications/2-huggingface.md)
+- [langchain](4-agent-applications/3-langchain.md)
 - RAG
 - Format LLM / Structural Decoding
-- Meta Tool-former
-- Hugging face
-- langchain
 - Triton
 - Ray
 
@@ -115,6 +119,6 @@ To make the model comparison table fit better in GitHub Markdown and improve rea
 
 
 # Exceptional Learning Tutorials
--[karpathy AI Tutorial](https://karpathy.ai/zero-to-hero.html)
--[Stanford CS224N](https://web.stanford.edu/class/cs224n/)
--[llm course github](https://github.com/mlabonne/llm-course)
+-[karpathy AI Tutorial](https://karpathy.ai/zero-to-hero.html)  
+-[Stanford CS224N](https://web.stanford.edu/class/cs224n/)  
+-[llm course github](https://github.com/mlabonne/llm-course)  
